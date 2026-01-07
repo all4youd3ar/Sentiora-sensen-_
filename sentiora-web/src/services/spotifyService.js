@@ -2,7 +2,7 @@
 
 const SPOTIFY_CONFIG = {
     clientId: import.meta.env.VITE_SPOTIFY_CLIENT_ID || '6bb327efa35340568acbaa8056db548f',
-    redirectUri: import.meta.env.VITE_SPOTIFY_REDIRECT_URI || 'http://127.0.0.1:5173/callback',
+    redirectUri: import.meta.env.VITE_SPOTIFY_REDIRECT_URI || `${window.location.origin}/callback`,
     authEndpoint: 'https://accounts.spotify.com/authorize',
     tokenEndpoint: 'https://accounts.spotify.com/api/token',
     apiBase: 'https://api.spotify.com/v1'
