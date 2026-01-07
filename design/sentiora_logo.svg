@@ -1,0 +1,26 @@
+<svg width="800" height="200" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- S: Flowing soft curves + premium geometric balance -->
+  <path d="M80 140C60 140 40 130 30 110L45 100C50 115 65 125 80 125C95 125 105 115 105 105C105 90 90 85 70 80C40 70 20 60 20 35C20 15 35 0 65 0C80 0 95 5 105 20L90 30C85 20 75 15 65 15C55 15 45 20 45 30C45 40 60 45 80 50C110 60 130 70 130 100C130 125 110 140 80 140Z" fill="#2C3E50"/>
+  
+  <!-- E: Clean modern bars with slightly rounded ends -->
+  <path d="M150 140V0H210C215 0 220 5 220 10C220 15 215 20 210 20H175V60H200C205 60 210 65 210 70C210 75 205 80 200 80H175V120H210C215 120 220 125 220 130C220 135 215 140 210 140H150Z" fill="#2C3E50"/>
+  
+  <!-- N: Straight but slightly softened diagonal -->
+  <path d="M240 140V0H260L300 100V0H320V140H300L260 40V140H240Z" fill="#2C3E50"/>
+  
+  <!-- T: Elegant long crossbar with rounded terminals -->
+  <path d="M370 140V20H340C335 20 330 15 330 10C330 5 335 0 340 0H420C425 0 430 5 430 10C430 15 425 20 420 20H390V140H370Z" fill="#2C3E50"/>
+  
+  <!-- I: Simple stem + droplet dot (signature element) -->
+  <path d="M450 140V40H470V140H450Z" fill="#2C3E50"/>
+  <ellipse cx="460" cy="15" rx="10" ry="12" fill="#2C3E50"/>
+  
+  <!-- O: Geometric circle with warm humanist slight oval -->
+  <path d="M530 140C500 140 480 110 480 70C480 30 500 0 530 0C560 0 580 30 580 70C580 110 560 140 530 140ZM530 120C550 120 560 100 560 70C560 40 550 20 530 20C510 20 500 40 500 70C500 100 510 120 530 120Z" fill="#2C3E50"/>
+  
+  <!-- R: Premium curved shoulder + emotional smooth leg -->
+  <path d="M600 140V0H640C670 0 690 20 690 50C690 70 680 85 660 90L695 140H670L640 95H620V140H600ZM640 75C655 75 665 65 665 50C665 35 655 25 640 25H620V75H640Z" fill="#2C3E50"/>
+  
+  <!-- A: Wide premium stance + rounded apex -->
+  <path d="M710 140L740 0H760L790 140H765L758 100H732L725 140H710ZM736 80H754L745 30L736 80Z" fill="#2C3E50"/>
+</svg>
