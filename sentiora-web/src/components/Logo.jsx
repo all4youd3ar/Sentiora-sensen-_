@@ -47,7 +47,7 @@ const Logo = ({ size = 'large', color = '#FDFBF7' }) => {
             {/* Text */}
             <h1 style={{
                 fontFamily: "'Quicksand', sans-serif",
-                fontSize: `clamp(1.5rem, ${3 * scale}rem, 10vw)`, // Use clamp for better control
+                fontSize: `clamp(0.5rem, ${3 * scale}rem, 10vw)`, // Use clamp for better control
                 fontWeight: '300',
                 letterSpacing: '0.2em',
                 color: 'transparent',

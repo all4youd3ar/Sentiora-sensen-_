@@ -20,15 +20,8 @@ export default function Footer() {
                 </p>
             </div>
 
-            <div style={{
-                display: 'inline-block',
-                padding: 'var(--space-xs) var(--space-md)',
-                background: 'rgba(255,215,0,0.1)',
-                border: '1px solid rgba(255,215,0,0.2)',
-                borderRadius: '20px',
-                marginTop: 'var(--space-md)'
-            }}>
-                <p style={{ margin: 0, color: '#ffd700', fontWeight: '600', letterSpacing: '0.5px' }}>
+            <div style={{ marginTop: 'var(--space-md)' }}>
+                <p style={{ margin: 0, opacity: 0.8 }}>
                     CEO & Founder: Mahlale Molefi
                 </p>
             </div>

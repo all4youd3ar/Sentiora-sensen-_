@@ -66,7 +66,7 @@ function MainLayout() {
                         overflow: 'visible' // Don't clip the wave
                     }}
                 >
-                    <div style={{ pointerEvents: 'none', transform: 'scale(0.35)', transformOrigin: 'center', width: '100px', display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ pointerEvents: 'none', width: '80px', display: 'flex', justifyContent: 'center' }}>
                         <Logo size="small" color="var(--color-text-primary)" />
                     </div>
                 </div>
