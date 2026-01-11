@@ -1,21 +1,21 @@
 import React from 'react';
 
 const Logo = ({ size = 'large', color = '#FDFBF7' }) => {
-    // Scales for different uses
-    const scale = size === 'large' ? 1.5 : size === 'medium' ? 1 : 0.7;
+    // Base dimensions for aspect ratio
     const baseWidth = 300;
     const baseHeight = 100;
+    const maxWidth = size === 'large' ? '450px' : size === 'medium' ? '300px' : '100%';
 
-    // Use scale to determine the maximum size, but allow it to be relative
-    const maxWidth = `${baseWidth * scale}px`;
-    const strokeWidth = 8; // Thickness of the wave
-    const height = baseHeight * scale;
+    // Scale for font size calculation
+    const scale = size === 'large' ? 1.5 : size === 'medium' ? 1 : 0.7;
+    const strokeWidth = 8;
 
     return (
         <div className="logo-component" style={{
             position: 'relative',
-            width: maxWidth,
-            height: `${height}px`,
+            width: '100%',
+            maxWidth: maxWidth,
+            aspectRatio: `${baseWidth}/${baseHeight}`,
             margin: '0 auto',
             display: 'flex',
             alignItems: 'center',
