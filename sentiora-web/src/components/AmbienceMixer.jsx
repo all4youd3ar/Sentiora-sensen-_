@@ -63,7 +63,8 @@ export default function AmbienceMixer() {
             <style>{`
                 @media (max-width: 768px) {
                     button[title="Ambience Mixer"] {
-                        bottom: 6rem !important;
+                        bottom: 85px !important;
+                        right: 15px !important;
                     }
                 }
             `}</style>

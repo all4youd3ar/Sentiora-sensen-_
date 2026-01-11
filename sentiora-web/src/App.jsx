@@ -33,6 +33,7 @@ import GlobalVibeScreen from './components/GlobalVibeScreen';
 
 import AmbienceMixer from './components/AmbienceMixer';
 import Logo from './components/Logo';
+import Footer from './components/Footer';
 
 function MainLayout() {
     const location = useLocation();
@@ -47,30 +48,31 @@ function MainLayout() {
                 <div
                     onClick={() => navigate('/profile')}
                     style={{
-                        position: 'absolute',
-                        top: '20px',
-                        right: '20px',
-                        zIndex: 100,
+                        position: 'fixed', // Changed to fixed to stay visible and predictable
+                        top: '15px',
+                        right: '15px',
+                        zIndex: 1000, // Higher z-index
                         cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '8px',
                         background: 'rgba(255,255,255,0.1)',
-                        padding: '8px 16px',
+                        padding: '4px 12px',
                         borderRadius: '20px',
                         backdropFilter: 'blur(10px)',
                         border: '1px solid rgba(255,255,255,0.2)',
-                        paddingTop: '20px', // Adjust for Logo's SVG positioning
-                        height: '60px',
-                        overflow: 'hidden'
+                        height: 'auto',
+                        minHeight: '40px',
+                        overflow: 'visible' // Don't clip the wave
                     }}
                 >
-                    <div style={{ pointerEvents: 'none', transform: 'scale(0.5)', transformOrigin: 'center' }}>
+                    <div style={{ pointerEvents: 'none', transform: 'scale(0.35)', transformOrigin: 'center', width: '100px', display: 'flex', justifyContent: 'center' }}>
                         <Logo size="small" color="var(--color-text-primary)" />
                     </div>
                 </div>
             )}
             <Outlet />
+            <Footer />
             <BottomNavigation />
             <AmbienceMixer />
         </div>

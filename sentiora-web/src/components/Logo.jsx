@@ -3,8 +3,11 @@ import React from 'react';
 const Logo = ({ size = 'large', color = '#FDFBF7' }) => {
     // Scales for different uses
     const scale = size === 'large' ? 1.5 : size === 'medium' ? 1 : 0.7;
-    const width = 300 * scale;
-    const height = 100 * scale;
+    const baseWidth = 300;
+    const baseHeight = 100;
+
+    // Use scale to determine the maximum size, but allow it to be relative
+    const maxWidth = `${baseWidth * scale}px`;
     const strokeWidth = 8; // Thickness of the wave
 
     return (
@@ -14,28 +17,26 @@ const Logo = ({ size = 'large', color = '#FDFBF7' }) => {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
-            width: `${width}px`,
-            // height: `${height}px`
+            width: '100%',
+            maxWidth: maxWidth,
+            margin: '0 auto'
         }}>
             {/* Wave SVG */}
             <svg
-                width={width}
-                height={height}
-                viewBox="0 0 300 100"
+                width="100%"
+                viewBox={`0 0 ${baseWidth} ${baseHeight}`}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{
-                    position: 'absolute',
-                    top: '-20%',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    zIndex: 1
+                    display: 'block',
+                    height: 'auto',
+                    zIndex: 1,
+                    marginBottom: `-${10 * scale}px` // Pull text closer
                 }}
             >
                 {/* Sine Wave Path: Up, Down, Up */}
                 <path
                     d="M 40 50 Q 90 -10 150 50 Q 210 110 260 50"
-
                     stroke={color}
                     strokeWidth={strokeWidth}
                     strokeLinecap="round"
@@ -46,16 +47,17 @@ const Logo = ({ size = 'large', color = '#FDFBF7' }) => {
             {/* Text */}
             <h1 style={{
                 fontFamily: "'Quicksand', sans-serif",
-                fontSize: `${3 * scale}rem`,
-                fontWeight: '300', // Light/Regular for that outlined feel (simulated with standard font for now)
+                fontSize: `clamp(1.5rem, ${3 * scale}rem, 10vw)`, // Use clamp for better control
+                fontWeight: '300',
                 letterSpacing: '0.2em',
-                color: 'transparent', // Transparent fill
-                WebkitTextStroke: `1px ${color}`, // Outline effect
+                color: 'transparent',
+                WebkitTextStroke: `1px ${color}`,
                 textTransform: 'uppercase',
                 margin: 0,
-                marginTop: `${20 * scale}px`, // Push text down below the wave
                 zIndex: 2,
-                position: 'relative'
+                position: 'relative',
+                textAlign: 'center',
+                width: '100%'
             }}>
                 Sentiora
             </h1>

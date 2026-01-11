@@ -1,76 +1,76 @@
 import React, { useState } from 'react';
 
 const MusicPlayer = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [currentTrack, setCurrentTrack] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentTrack, setCurrentTrack] = useState(0);
 
-    const tracks = [
-        {
-            title: "Agape",
-            artist: "Nicholas Britell",
-            id: "2nfnX3XjhF8TkBftWyJCf2"
-        },
-        {
-            title: "Experience",
-            artist: "Ludovico Einaudi",
-            id: "5tFYuaTxlVt9PvJQVttwQ3"
-        }
-    ];
+  const tracks = [
+    {
+      title: "Agape",
+      artist: "Nicholas Britell",
+      id: "2nfnX3XjhF8TkBftWyJCf2"
+    },
+    {
+      title: "Experience",
+      artist: "Ludovico Einaudi",
+      id: "5tFYuaTxlVt9PvJQVttwQ3"
+    }
+  ];
 
-    const togglePlayer = () => setIsOpen(!isOpen);
+  const togglePlayer = () => setIsOpen(!isOpen);
 
-    return (
-        <div className="music-player-container">
-            {/* Floating Button */}
-            <button
-                className={`music-fab ${isOpen ? 'active' : ''}`}
-                onClick={togglePlayer}
-                title="Music Player"
+  return (
+    <div className="music-player-container">
+      {/* Floating Button */}
+      <button
+        className={`music-fab ${isOpen ? 'active' : ''}`}
+        onClick={togglePlayer}
+        title="Music Player"
+      >
+        <span style={{ fontSize: '1.5rem' }}>🎵</span>
+      </button>
+
+      {/* Player Popup */}
+      <div className={`music-popup ${isOpen ? 'open' : ''}`}>
+        <div className="music-header">
+          <h3>Sanctuary Sounds</h3>
+          <button className="close-btn" onClick={togglePlayer}>×</button>
+        </div>
+
+        <div className="current-player">
+          <iframe
+            style={{ borderRadius: '12px' }}
+            src={`https://open.spotify.com/embed/track/${tracks[currentTrack].id}?utm_source=generator&theme=0`}
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allowFullScreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Sentiora Music"
+          ></iframe>
+        </div>
+
+        <div className="playlist">
+          {tracks.map((track, index) => (
+            <div
+              key={track.id}
+              className={`track-item ${currentTrack === index ? 'playing' : ''}`}
+              onClick={() => setCurrentTrack(index)}
             >
-                <span style={{ fontSize: '1.5rem' }}>🎵</span>
-            </button>
-
-            {/* Player Popup */}
-            <div className={`music-popup ${isOpen ? 'open' : ''}`}>
-                <div className="music-header">
-                    <h3>Sanctuary Sounds</h3>
-                    <button className="close-btn" onClick={togglePlayer}>×</button>
-                </div>
-
-                <div className="current-player">
-                    <iframe
-                        style={{ borderRadius: '12px' }}
-                        src={`https://open.spotify.com/embed/track/${tracks[currentTrack].id}?utm_source=generator&theme=0`}
-                        width="100%"
-                        height="152"
-                        frameBorder="0"
-                        allowFullScreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"
-                        title="Sentiora Music"
-                    ></iframe>
-                </div>
-
-                <div className="playlist">
-                    {tracks.map((track, index) => (
-                        <div
-                            key={track.id}
-                            className={`track-item ${currentTrack === index ? 'playing' : ''}`}
-                            onClick={() => setCurrentTrack(index)}
-                        >
-                            <div className="track-info">
-                                <span className="track-title">{track.title}</span>
-                                <span className="track-artist">{track.artist}</span>
-                            </div>
-                            {currentTrack === index && <span className="playing-indicator">Eq</span>}
-                        </div>
-                    ))}
-                </div>
-
-                <p className="volume-note">Note: Please adjust volume via Spotify or your device.</p>
+              <div className="track-info">
+                <span className="track-title">{track.title}</span>
+                <span className="track-artist">{track.artist}</span>
+              </div>
+              {currentTrack === index && <span className="playing-indicator">Eq</span>}
             </div>
+          ))}
+        </div>
 
-            <style>{`
+        <p className="volume-note">Note: Please adjust volume via Spotify or your device.</p>
+      </div>
+
+      <style>{`
         .music-player-container {
           position: fixed;
           bottom: 2rem;
@@ -214,13 +214,13 @@ const MusicPlayer = () => {
 
         @media (max-width: 768px) {
           .music-player-container {
-            bottom: 5rem; /* Above bottom nav */
-            left: 1rem;
+            bottom: 85px; /* Above BottomNavigation (usually ~70-80px high) */
+            left: 15px;
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default MusicPlayer;
