@@ -1,69 +1,69 @@
 import React from 'react';
 
 const Logo = ({ size = 'large', color = '#FDFBF7' }) => {
-    // Base dimensions for aspect ratio
-    const baseWidth = 300;
-    const baseHeight = 100;
-    const maxWidth = size === 'large' ? '450px' : size === 'medium' ? '300px' : '100%';
+    // Base dimensions for aspect ratio of the vector graphic
+    const baseWidth = 400;
+    const baseHeight = 120;
 
-    // Scale for font size calculation
-    const scale = size === 'large' ? 1.5 : size === 'medium' ? 1 : 0.7;
-    const strokeWidth = 8;
+    // Determine container max-width based on prop
+    const maxWidth = size === 'large' ? '450px' : size === 'medium' ? '300px' : '100px';
 
     return (
         <div className="logo-component" style={{
-            position: 'relative',
             width: '100%',
             maxWidth: maxWidth,
-            aspectRatio: `${baseWidth}/${baseHeight}`,
             margin: '0 auto',
+            // Uses the aspect ratio of the SVG viewbox to maintain shape
+            aspectRatio: `${baseWidth}/${baseHeight}`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
         }}>
-            {/* Wave SVG - Absolutely positioned to fill container */}
             <svg
                 width="100%"
                 height="100%"
                 viewBox={`0 0 ${baseWidth} ${baseHeight}`}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    zIndex: 2, // Wave on top
-                    overflow: 'visible'
-                }}
+                style={{ overflow: 'visible' }}
             >
-                {/* Sine Wave Path */}
-                <path
-                    d="M 30 55 Q 90 5 150 55 Q 210 105 270 55"
+                {/* 
+                    TEXT: "SENTIORA"
+                    Placed first so the wave overlays it.
+                    Centered at x=200, y=65 (approx middle).
+                    Using Quicksand font to match app.
+                */}
+                <text
+                    x="200"
+                    y="75"
+                    textAnchor="middle"
+                    domingantBaseline="middle"
+                    fontFamily="'Quicksand', sans-serif"
+                    fontSize="60"
+                    fontWeight="300"
+                    letterSpacing="12"
+                    fill="transparent"
                     stroke={color}
-                    strokeWidth={strokeWidth}
+                    strokeWidth="1.5"
+                >
+                    SENTIORA
+                </text>
+
+                {/* 
+                    WAVE:
+                    Spans slightly wider to encompass the text.
+                    Text is centered at 200. Text width approx 360-380.
+                    Wave should flow from ~20 to ~380.
+                */}
+                <path
+                    d="M 20 65 Q 110 -15 200 65 Q 290 145 380 65"
+                    stroke={color}
+                    strokeWidth="10"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     style={{ filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.1))' }}
                 />
             </svg>
-
-            {/* Text - Centered in container */}
-            <h1 style={{
-                fontFamily: "'Quicksand', sans-serif",
-                fontSize: `clamp(0.5rem, ${3.2 * scale}rem, 12vw)`,
-                fontWeight: '300',
-                letterSpacing: '0.25em',
-                color: 'transparent',
-                WebkitTextStroke: `1px ${color}`,
-                textTransform: 'uppercase',
-                margin: 0,
-                zIndex: 1,
-                position: 'relative',
-                textAlign: 'center',
-                lineHeight: 1
-            }}>
-                Sentiora
-            </h1>
         </div>
     );
 };
